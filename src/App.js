@@ -71,7 +71,7 @@ function App() {
 
           {/*swich of react router part //// exact is used because react do partial matching*/}
           <Switch>
-          <Route exact path="/TextUtils">
+          <Route exact path="/">
               <Textform showAlert={showAlert} heading={'Enter the text to analyze'} mode={mode} />
             </Route>
             <Route exact path="/about">
