@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Alert from './components/Alert';
 import Textform from './components/Textform';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -34,12 +34,12 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = 'black';
       showAlert("Dark mode has been enabled", "success");
-      document.title = 'TextUtils - Dark mode';
+      document.title = 'TextCrafts - Dark mode';
     } else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = 'TextUtils - Light mode';
+      document.title = 'TextCrafts - Light mode';
     }
   };
 
@@ -47,22 +47,23 @@ function App() {
     <>
       <Router>
         {/*to do comment or ctrl+k+c*/}
-        <Navbar title="TextUtil" aboutText="About" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="TextCraft" aboutText="About" mode={mode} toggleMode={toggleMode} />
         {/**/}
         <Alert alert={alert} />
         <div className='container my-3'>{/*my-3 is bootstrap class to give margin in y 3 */}
 
           {/*swich of react router part //// exact is used because react do partial matching*/}
-          <Switch>
+          
           <Route exact path="/">
-              <Textform showAlert={showAlert} heading={'Enter the text to analyze'} mode={mode} />
-            </Route>
+  <Textform showAlert={showAlert} heading={'Enter the text to analyze'} mode={mode} />
+</Route>
+
             <Route exact path="/about">
               <About mode={mode}  />
             </Route>
 
             
-          </Switch>
+         
 
         </div>
       </Router>
